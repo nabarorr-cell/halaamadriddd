@@ -1,1 +1,21 @@
+script>
+const music = document.getElementById("bgMusic");
+const toggle = document.getElementById("musicToggle");
 
+// Tombol Nyalakan / Matikan Musik
+toggle.addEventListener("click", async () => {
+    if (music.paused) {
+        try {
+            await music.play();
+            toggle.textContent = "🔇 Matikan Musik";
+        } catch (error) {
+            console.log("Musik tidak dapat diputar:", error);
+        }
+    } else {
+        music.pause();
+        toggle.textContent = "🔊 Nyalakan Musik";
+    }
+});
+
+
+</script>
